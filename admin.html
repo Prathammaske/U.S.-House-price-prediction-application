@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add Review</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Admin - Add a Review</h1>
+    <form action="{{ url_for('add_review') }}" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="review_text">Review:</label>
+        <textarea id="review_text" name="review_text" required></textarea>
+
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <hr>
+    <h2>Existing Reviews</h2>
+    <ul>
+        {% for review in reviews %}
+            <li><strong>{{ review.name }}</strong>: {{ review.review_text }} ({{ review.timestamp }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

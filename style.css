@@ -1,0 +1,37 @@
+/* Example styles for the navbar */
+nav {
+    background-color: #333; /* Change to your desired color */
+    color: white; /* Text color */
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexbox for horizontal layout */
+}
+
+nav ul li {
+    margin-right: 20px; /* Space between nav items */
+}
+
+nav ul li a {
+    color: white; /* Link text color */
+    text-decoration: none; /* Remove underline */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Optional: Style for the footer */
+footer {
+    background-color: #343a40; /* Footer background color */
+    color:black; /* Footer text color */
+    text-align: center; /* Center text */
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%; /* Full width footer */
+}

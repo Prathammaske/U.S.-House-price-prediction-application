@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}visualizations{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Time Series of Key Economic Indicators</h2>
+    <p class="text-center mb-4 text-muted">Explore how economic indicators have changed over time.</p>
+    <div id="chart" class="mb-5"></div>
+</div>
+<div class="text-center mb-3">
+    <a href="{{ url_for('correlation_heatmap') }}" class="btn btn-secondary">View Correlation Heatmap</a>
+</div>
+<div class="text-center mb-3">
+    <a href="{{ url_for('distribution') }}" class="btn btn-info">View Distribution of House Price Index</a>
+</div>
+<div class="text-center mb-3">
+    <a href="{{ url_for('scatter_matrix') }}" class="btn btn-dark">View Scatter Matrix</a>
+</div>
+
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+    var graphJSON = {{ graph_json | safe }};
+    Plotly.newPlot('chart', graphJSON.data, graphJSON.layout);
+</script>
+{% endblock %}
+

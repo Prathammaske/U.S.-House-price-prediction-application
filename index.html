@@ -1,0 +1,314 @@
+
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+   
+   <!-- Your existing content goes here -->
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title> House Price Prediction</title>
+       <!-- Bootstrap CSS -->
+       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+       <style>
+        
+           body {
+               background-color: #343a40; /* Set background to grey */
+               
+               
+           }
+
+           .fade-in {
+            opacity: 0;
+            animation: fadeIn ease-in 1;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+           .btn:hover {
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+    transition: transform 0.3s ease;
+}
+           .navbar {
+               background-color: #343a40;
+           }
+           .navbar-brand, .navbar-nav .nav-link {
+               color: #ffffff !important;
+           }
+           .container {
+               max-width: 800px;
+               background-color: #ffffff;
+               padding: 2rem;
+               border-radius: 8px;
+               box-shadow: 0 4px 20px rgba(0, 0, 0, 2); /* Adjusted shadow */
+           }
+           h2 {
+               color: #343a40;
+           }
+           .form-group label {
+               font-weight: bold;
+           }
+           .btn-primary {
+               background-color: black; /* Changed to black */
+               color: white; /* Optional: Set text color to white for better contrast */
+               border: none;
+           }
+           input.form-control {
+               background-color: #f8f9fa; /* Light grey background */
+               color: #343a40; /* Dark text color */
+               border: 1px solid #ced4da; /* Light border color */
+               border-radius: 4px; /* Rounded corners */
+           }
+           
+           input.form-control:focus {
+               background-color: #ffffff; /* White background on focus */
+               border-color: #007bff; /* Border color on focus */
+               box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
+           }
+           .review-box {
+               margin-top: 30px; /* Space above the review box */
+               border: 1px solid #ced4da; /* Border for review box */
+               padding: 20px;
+               border-radius: 8px;
+               background-color: #f8f9fa; /* Light background for contrast */
+           }
+           
+           
+       </style>
+   </head>
+   <body>
+   
+      
+   
+       <!-- Carousel -->
+   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://img.freepik.com/free-photo/inspired-upbeat-dreamy-fascinated-redhead-girl-writing-down-interesting-lecture-smiling-gazi_1258-126205.jpg?ga=GA1.1.98773573.1730375832&semt=ais_siglip" class="d-block w-100" alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img src="https://img.freepik.com/free-photo/astonished-impressed-surprised-redhead-curly-woman-with-blue-eyes-freckles-rate-something-awesom_1258-126239.jpg?ga=GA1.1.98773573.1730375832&semt=ais_siglip" class="d-block w-100" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img src="https://img.freepik.com/free-photo/gestures-winter-holidays-people-concept-sensual-flirty-cute-redhead-woman-girl-prepare-surpr_1258-143208.jpg?ga=GA1.1.98773573.1730375832&semt=ais_siglip" class="d-block w-100" alt="Third slide">
+        </div>
+    </div>
+</div>
+   <marquee behavior="scroll" direction="left" scrollamount="10" style="color: white; font-size: 24px; font-weight: bold; background-color: #343a40;">
+       WELCOME TO OUR WEBSITE! WE ARE HERE WITH BEST HOUSE PRICE PREDICTIONS! STAY TUNED FOR UPDATES!
+   </marquee>
+   
+       <!-- Main Container -->
+       <div class="container mt-5 fade-in">
+           <h2 class="text-center mb-4"><b>Predict House Price</b></h2>
+           <form action="/predict" method="post">
+               <div class="row">
+                   <div class="form-group col-md-6">
+                       <label for="date">Date (YYYY-MM-DD):</label>
+                       <input type="text" class="form-control" name="date" required>
+                   </div>
+                   <div class="form-group col-md-6">
+                       <label for="cpi">CPIAUCSL:</label>
+                       <input type="text" class="form-control" name="cpi" required>
+                   </div>
+               </div>
+   
+               <!-- Additional Fields -->
+               <div class="row">
+                   <div class="form-group col-md-6">
+                       <label for="dax">DAXRNSA:</label>
+                       <input type="text" class="form-control" name="dax" required>
+                   </div>
+                   <div class="form-group col-md-6">
+                       <label for="gdp">GDP:</label>
+                       <input type="text" class="form-control" name="gdp" required>
+                   </div>
+               </div>
+   
+               <div class="row">
+                   <div class="form-group col-md-6">
+                       <label for="hous">HOUST:</label>
+                       <input type="text" class="form-control" name="hous" required>
+                   </div>
+                   <div class="form-group col-md-6">
+                       <label for="lxx">LXXRNSA:</label>
+                       <input type="text" class="form-control" name="lxx" required>
+                   </div>
+               </div>
+   
+               <div class="row">
+                   <div class="form-group col-md-6">
+                       <label for="mix">MIXRNSA:</label>
+                       <input type="text" class="form-control" name="mix" required>
+                   </div>
+                   <div class="form-group col-md-6">
+                       <label for="mortgage">MORTGAGE30US:</label>
+                       <input type="text" class="form-control" name="mortgage" required>
+                   </div>
+               </div>
+   
+               <div class="row">
+                   <div class="form-group col-md-6">
+                       <label for="nyx">NYXRSA:</label>
+                       <input type="text" class="form-control" name="nyx" required>
+                   </div>
+                   <div class="form-group col-md-6">
+                       <label for="permit">PERMIT:</label>
+                       <input type="text" class="form-control" name="permit" required>
+                   </div>
+               </div>
+   
+               <div class="row">
+                   <div class="form-group col-md-6">
+                       <label for="pop">POPTHM:</label>
+                       <input type="text" class="form-control" name="pop" required>
+                   </div>
+                   <div class="form-group col-md-6">
+                       <label for="sfx">SFXRNSA:</label>
+                       <input type="text" class="form-control" name="sfx" required>
+                   </div>
+               </div>
+   
+               <div class="row">
+                   <div class="form-group col-md-6">
+                       <label for="unrate">UNRATE:</label>
+                       <input type="text" class="form-control" name="unrate" required>
+                   </div>
+                   <div class="form-group col-md-6">
+                       <label for="year">Year:</label>
+                       <input type="text" class="form-control" name="year" required>
+                   </div>
+               </div>
+   
+               <div class="row">
+                   <div class="form-group col-md-6">
+                       <label for="month">Month:</label>
+                       <input type="text" class="form-control" name="month" required>
+                   </div>
+                   <div class="form-group col-md-6">
+                       <label for="chushpisa_lag1">CSUSHPISA_LAG1:</label>
+                       <input type="text" class="form-control" name="chushpisa_lag1" required>
+                   </div>
+               </div>
+   
+               <button type="submit" class="btn btn-primary btn-block mt-3">Predict</button>
+           </form>
+   
+           <!-- Display Prediction and Estimated Price -->
+           {% if prediction_text and estimated_price_text %}
+           <div class="alert alert-success text-center mt-4" role="alert">
+               <h4>{{ prediction_text }}</h4>
+               <h4>{{ estimated_price_text }}</h4>
+           </div>
+           {% endif %}
+       </div>
+       
+       <!-- Review Box -->
+ 
+   <div class="review-box mt-5 fade-in">
+       <h3>Leave a Review</h3>
+       <form action="/submit_review" method="post">
+           <div class="form-group">
+               <label for="name">Name:</label>
+               <input type="text" class="form-control" name="name" required>
+           </div>
+           <div class="form-group">
+               <label for="rating">Rating:</label>
+               <div class="rating">
+                   <input type="radio" id="bad" name="rating" value="1">
+                   <label for="bad" class="star">Bad</label>
+   
+                   <input type="radio" id="nice" name="rating" value="2">
+                   <label for="nice" class="star">Nice</label>
+   
+                   <input type="radio" id="good" name="rating" value="3">
+                   <label for="good" class="star">Good</label>
+   
+                   <input type="radio" id="very_good" name="rating" value="4">
+                   <label for="very_good" class="star">Very Good</label>
+   
+                   <input type="radio" id="excellent" name="rating" value="5">
+                   <label for="excellent" class="star">Excellent</label>
+               </div>
+           </div>
+           
+           <div class="form-group">
+               <label for="review">Review:</label>
+               <textarea class="form-control" name="review" rows="4" required></textarea>
+           </div>
+           <button type="submit" class="btn btn-primary btn-block mt-3">Submit Review</button>
+       </form>
+   </div>
+
+   <!-- Success Modal -->
+   <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="successModalLabel">Success</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+               </div>
+               <div class="modal-body">
+                   Your review has been submitted successfully!
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="container">
+    <div class=" row justify-content-center">
+        <div class="col-sm-8">
+            <h2>Home page</h2>
+            <a href="/register" class="btn btn-primary mt-3">Register</a>
+            <a href="/login" class="btn btn-dark mt-3">Login</a>
+        </div>
+
+    </div>
+  
+</div>
+   
+   <footer>
+       <div style="text-align: center; padding: 20px; background-color: #f1f1f1;">
+           <p>Prathmesh Maske</p>
+           <p>Email: <a href="mailto:prathmeshmaske001@gmail.com">prathmeshmaske001@gmail.com</a></p>
+           <p>Phone: <a href="tel:+917769062394">7769062394</a></p>
+           <p>Connect with me on 
+               <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a> | 
+               <a href="https://github.com/your-github" target="_blank">GitHub</a>
+           </p>
+       </div>
+   </footer>
+   
+   <!-- SUBMISSION  -->
+   <script>
+       document.getElementById('reviewForm').addEventListener('submit', function(event) {
+           event.preventDefault(); // Prevent the default form submission
+           // Here you can add any AJAX call if needed for backend submission
+   
+           // Show the success modal
+           alert('Your review has been submitted successfully!');
+   
+   
+           // Optionally, you can reset the form after submission
+           this.reset();
+       });
+   </script>
+   
+   
+   
+   </html>
+{% endblock %}
+

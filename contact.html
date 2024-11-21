@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4 text-primary" style="font-weight: bold;">Contact Us</h2>
+    <p class="text-center mb-4 text-muted">We'd love to hear from you! Please fill out the form below.</p>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Login Form Container -->
+            <div class="card mb-4 shadow-sm" style="background-color: #d3d3d3;">
+                <div class="card-header text-center bg-primary text-white">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body text-center">
+                    <form action="/login" method="post">
+                        <div class="form-group mb-3">
+                            <label for="login-email">Email:</label>
+                            <input type="email" class="form-control" id="login-email" name="email" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="login-password">Password:</label>
+                            <input type="password" class="form-control" id="login-password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Registration Form Container -->
+            <div class="card shadow-sm" style="background-color: #d3d3d3;">
+                <div class="card-header text-center bg-success text-white">
+                    <h4>Register</h4>
+                </div>
+                <div class="card-body text-center">
+                    <form action="/register" method="post">
+                        <div class="form-group mb-3">
+                            <label for="register-name">Full Name:</label>
+                            <input type="text" class="form-control" id="register-name" name="name" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="register-email">Email:</label>
+                            <input type="email" class="form-control" id="register-email" name="email" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="register-password">Password:</label>
+                            <input type="password" class="form-control" id="register-password" name="password" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="register-confirm-password">Confirm Password:</label>
+                            <input type="password" class="form-control" id="register-confirm-password" name="confirm_password" required>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #343a40; /* Light grey background for the entire webpage */
+    }
+    .card {
+        border-radius: 10px; /* Rounded corners for cards */
+    }
+    .btn {
+        border-radius: 20px; /* Rounded buttons */
+    }
+    h2 {
+        font-family: 'Arial', sans-serif; /* Font style for header */
+        font-size: 2.5rem; /* Size for better visibility */
+        color: White;
+    }
+    .text-muted {
+        font-style: italic; /* Italic style for subtlety */
+        color: White;
+    }
+    .shadow-sm {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    }
+    .form-group {
+        margin-bottom: 2rem; /* Increased spacing between form elements */
+    }
+    .card-body {
+        text-align: center; /* Center align text in the card body */
+    }
+</style>
+{% endblock %}
